@@ -26,8 +26,9 @@ pipeline {
     stage('build-image') {
       agent any
       steps {
-        sh 'docker build -t registry.cn-shanghai.aliyuncs.com/dengqingpei/test:v1 .'
-        sh 'docker push registry.cn-shanghai.aliyuncs.com/dengqingpei/test:v1'
+        docker.withRegistry('https://registry.cn-shanghai.aliyuncs.com', 'docker-registry') {  
+          docker.build('registry.cn-shanghai.aliyuncs.com/dengqingpei/test:v2').push()  
+        }  
       }
     }
   }
