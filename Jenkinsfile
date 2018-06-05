@@ -28,7 +28,7 @@ pipeline {
       steps {
         withDockerRegistry(credentialsId: 'docker-registry', url: 'https://registry.cn-shanghai.aliyuncs.com') {
           script {
-            def customImage = docker.build("registry.cn-shanghai.aliyuncs.com/dengqingpei/test:v4")
+            def customImage = docker.build("registry.cn-shanghai.aliyuncs.com/dengqingpei/test:v5")
             customImage.push()
           }
         }
