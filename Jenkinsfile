@@ -38,7 +38,7 @@ pipeline {
       agent any
       steps {
         //kubernetesDeploy configs: 'k8s/*.yaml', dockerCredentials: [[credentialsId: 'docker-registry', url: 'https://registry.cn-shanghai.aliyuncs.com']], kubeConfig: [path: ''], kubeconfigId: 'kubeconfig', secretName: 'aliyun', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
-        withKubeConfig(caCertificate: '', credentialsId: 'k8s-cert', serverUrl: 'https://192.168.1.200:6443') {
+        withKubeConfig(caCertificate: '', credentialsId: 'k8s_token', serverUrl: 'https://192.168.1.200:6443') {
           sh 'kubectl version'
         }
       }
